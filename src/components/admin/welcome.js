@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { getMessage } from '../../actions/message';
 
 class Welcome extends Component {
+
+
+componentWillMount(){
+    this.props.dispatch(getMessage());
+}
+
+
   render() {
     return (
       <div>
-        welcome Admin navigation goes here.
+        <h2>Secured Page!</h2>
+
+
+
       </div>
     );
   }
 }
+
 function mapStateToProps(state) {
-    const { data } = state.message;
-    return { page: data };
+    return { page: state.message };
 }
 
-export default connect(mapStateToProps) (Welcome);
+export default Welcome;

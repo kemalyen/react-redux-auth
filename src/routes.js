@@ -31,6 +31,7 @@ import BillingSettings from './components/billing/settings';
 // Import admin pages
 import AdminDashboard from './components/admin/dashboard';
 import Welcome from './components/admin/welcome';
+import Dashboard from './components/Dashboard';
 
 // Import higher order components
 import RequireAuth from './components/auth/require_auth';
@@ -45,8 +46,9 @@ export default (
     <Route path="logout" component={Logout} />
     <Route path="forgot-password" component={ForgotPassword} />
     <Route path="reset-password/:resetToken" component={ResetPassword} />
+    
+    <Route path="dashboard" component={Dashboard} />
     <Route path="welcome" component={RequireAuth(Welcome)} />
-
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
 
     <Route path="*" component={NotFoundPage} />
