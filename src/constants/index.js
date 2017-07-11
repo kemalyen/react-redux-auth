@@ -38,3 +38,6 @@ export const CREATE_CUSTOMER = 'create_customer',
   UPDATE_BILLING = 'update_billing',
   BILLING_ERROR = 'billing_error',
   CHANGE_SUBSCRIPTION = 'change_subscription';
+
+
+export const API_URL = 'http://ons.app/api';

@@ -1,4 +1,4 @@
-import { FETCH_USER, ERROR_RESPONSE } from '../actions/types';
+import { FETCH_USER, ERROR_RESPONSE } from '../constants';
 
 const INITIAL_STATE = { profile: {}, message: '', error: '' };
 

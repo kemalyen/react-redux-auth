@@ -22,7 +22,7 @@ class Login extends Component {
       );
     }
   }
-
+ 
   render() {
     const { handleSubmit } = this.props;
 
@@ -30,9 +30,10 @@ class Login extends Component {
       <div>
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           {this.renderAlert()}
+ 
           <div>
-            <label>Username</label>
-            <Field name="username" className="form-control" component="input" type="text" />
+            <label>Email</label>
+            <Field name="email" className="form-control" component="input" type="text" />
           </div>
           <div>
             <label>Password</label>

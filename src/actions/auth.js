@@ -1,17 +1,20 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookie';
-import { API_URL, CLIENT_ROOT_URL, errorHandler } from './index';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASSWORD_REQUEST, PROTECTED_TEST } from './types';
+import { CLIENT_ROOT_URL, errorHandler } from './index';
+import { API_URL, AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASSWORD_REQUEST, PROTECTED_TEST } from '../constants';
 
 //= ===============================
 // Authentication actions
 //= ===============================
 
 // TO-DO: Add expiration to cookie
-export function loginUser({ username, password }) {
+export function loginUser({ email, password }) {
   return function (dispatch) {
-    axios.post(`${API_URL}/auth/login`, { username, password })
+    axios.post(`${API_URL}/auth/login`, 
+      { 'email': email, 'password': password },
+      { headers: { 'content-type': 'application/json', 'cache-control': 'no-cache' } }      
+      )
     .then((response) => {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
@@ -24,9 +27,9 @@ export function loginUser({ username, password }) {
   };
 }
 
-export function registerUser({ email, firstName, lastName, password }) {
+export function registerUser({ email, firstname, lastname, password }) {
   return function (dispatch) {
-    axios.post(`${API_URL}/auth/register`, { email, firstName, lastName, password })
+    axios.post(`${API_URL}/auth/register`, { email, firstname, lastname, password, password_confirmation: password, title: 1, phone: '53399545', confirmation_email: 1 })
     .then((response) => {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });

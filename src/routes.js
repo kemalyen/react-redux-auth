@@ -33,6 +33,11 @@ import AdminDashboard from './components/admin/dashboard';
 import Welcome from './components/admin/welcome';
 import Dashboard from './components/Dashboard';
 
+
+import MovieList from './components/movies/MovieList';
+
+
+
 // Import higher order components
 import RequireAuth from './components/auth/require_auth';
 
@@ -48,6 +53,9 @@ export default (
     <Route path="reset-password/:resetToken" component={ResetPassword} />
     
     <Route path="dashboard" component={Dashboard} />
+    
+    <Route path="movies" component={RequireAuth(MovieList)} />
+
     <Route path="welcome" component={RequireAuth(Welcome)} />
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
 
