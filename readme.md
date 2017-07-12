@@ -1,6 +1,6 @@
-# React Redux auth starter kit (boilerplate)
+# React Redux Auth starter kit (boilerplate)
 
-This minimalist react-redux starter kit (boilerplate) is developed for my project. The starter code has been forked from another project. But unfortunetly I could not find the correct repo which inspired. For that reason, if someone can recognize the original code, I wish to give credits.
+This react-redux starter kit (boilerplate) is developed for my project. The starter code has been forked from another project. But unfortunetly I could not find the correct repo which inspired. For that reason, if someone can recognize the original code, I wish to give credits.
 
 However most of code has been redesigned. Again this is my simple and basec starter project.
 
