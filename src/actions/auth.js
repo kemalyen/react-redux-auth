@@ -29,7 +29,9 @@ export function loginUser({ email, password }) {
 
 export function registerUser({ email, firstname, lastname, password }) {
   return function (dispatch) {
-    axios.post(`${API_URL}/auth/register`, { email, firstname, lastname, password, password_confirmation: password, title: 1, phone: '53399545', confirmation_email: 1 })
+    // some partr of registration are releated to my api
+    // so please, update the fields.
+    axios.post(`${API_URL}/auth/register`, { email, firstname, lastname, password, password_confirmation: password, title: 1, phone: '123456', confirmation_email: 1 })
     .then((response) => {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
