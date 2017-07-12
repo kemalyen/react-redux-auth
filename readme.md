@@ -2,7 +2,7 @@
 
 This minimalist react-redux starter kit (boilerplate) is developed for my project. The starter code has been forked from another project. But unfortunetly I could not find the correct repo which inspired. For that reason, if someone can recognize the original code, I wish to give credits.
 
-Hoewver most of code has been redesigned. Again this is my simple and basec starter project.
+However most of code has been redesigned. Again this is my simple and basec starter project.
 
 For backendend Api, I've used my own Test API Server. You could use my [Laravel Api Project](https://github.com/gazatem/api-authentication-passport)
 
@@ -17,7 +17,6 @@ For backendend Api, I've used my own Test API Server. You could use my [Laravel 
 2. When your environment is ok, open terminal and type the following commands to setup and run the sample application:
 
     ```sh
-    cd C:\js\node\apps
     git clone https://github.com/gazatem/react-redux-auth.git app
     cd app
     npm install
