@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookie';
-import { CLIENT_ROOT_URL, errorHandler } from './index';
-import { API_URL, AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASSWORD_REQUEST, PROTECTED_TEST } from '../constants';
+import { errorHandler } from './index';
+import { API_URL, AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASSWORD_REQUEST, PROTECTED_TEST, CLIENT_ROOT_URL } from '../constants';
 
 //= ===============================
 // Authentication actions

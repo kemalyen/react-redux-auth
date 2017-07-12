@@ -2,26 +2,28 @@ import axios from 'axios';
 import cookie from 'react-cookie';
 import { logoutUser } from './auth';
 import { STATIC_ERROR, FETCH_USER } from '../constants';
-export const CLIENT_ROOT_URL = 'http://localhost:8080';
+
+import { API_URL, AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASSWORD_REQUEST, PROTECTED_TEST } from '../constants';
 
 //= ===============================
 // Utility actions
 //= ===============================
 
-export function fetchUser(uid) {
+export function fetchUserByToken(token) {
   return function (dispatch) {
-    axios.get(`${API_URL}/user/${uid}`, {
-      headers: { Authorization: cookie.load('token') },
+    axios.get(`${API_URL}/profile`, {
+      headers: { Authorization: "Bearer " + cookie.load('token') },
     })
     .then((response) => {
       dispatch({
         type: FETCH_USER,
-        payload: response.data.user,
+        payload: response.data.data,
       });
     })
     .catch(response => dispatch(errorHandler(response.data.error)));
   };
 }
+
 
 export function errorHandler(dispatch, error, type) {
   console.log('Error type: ', type);
@@ -124,21 +126,4 @@ export function deleteData(action, errorType, isAuthReq, url, dispatch) {
     errorHandler(dispatch, error.response, errorType);
   });
 }
-
-//= ===============================
-// Static Page actions
-//= ===============================
-export function sendContactForm({ name, emailAddress, message }) {
-  return function (dispatch) {
-    axios.post(`${API_URL}/communication/contact`, { name, emailAddress, message })
-    .then((response) => {
-      dispatch({
-        type: SEND_CONTACT_FORM,
-        payload: response.data.message,
-      });
-    })
-    .catch((error) => {
-      errorHandler(dispatch, error.response, STATIC_ERROR);
-    });
-  };
-}
+ 

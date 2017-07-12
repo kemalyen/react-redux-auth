@@ -10,9 +10,13 @@ class HeaderTemplate extends Component {
           <Link to="/">Home</Link>
         </li>,
         <li key={`${2}header`}>
-          <Link to="dashboard">Dashboard</Link>
+          <Link to="admin">Admin</Link>
         </li>,
         <li key={`${3}header`}>
+          <Link to="welcome">Protected Page</Link>
+        </li>,
+
+        <li key={`${4}header`}>
           <Link to="logout">Logout</Link>
         </li>,
       ];
@@ -23,9 +27,12 @@ class HeaderTemplate extends Component {
           <Link to="/">Home</Link>
         </li>,
         <li key={2}>
-          <Link to="login">Login</Link>
+          <Link to="welcome">Protected Page</Link>
         </li>,
         <li key={3}>
+          <Link to="login">Login</Link>          
+        </li>,
+        <li key={4}>
           <Link to="register">Register</Link>
         </li>,
       ];
@@ -49,9 +56,6 @@ class HeaderTemplate extends Component {
             <div className="collapse navbar-collapse" id="nav-collapse">
               <ul className="nav navbar-nav navbar-right">
                 {this.renderLinks()}
-                <li>
-                  <Link to="/movies">Movies</Link>
-                </li>
               </ul>
             </div>
           </div>
