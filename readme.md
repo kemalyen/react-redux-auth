@@ -33,7 +33,7 @@ If you see a simpel welcome page, Take Congratulations!
 //= =====================
 // API URL
 //= =====================
-export const API_URL = 'http://ons.app/api';
+export const API_URL = 'http://gz.app/api';
  
 ```
 

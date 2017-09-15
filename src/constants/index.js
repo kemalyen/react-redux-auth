@@ -17,7 +17,7 @@ export const FETCH_USER = 'fetch_user';
 //= =====================
 // API URL
 //= =====================
-export const API_URL = 'http://ons.app/api';
+export const API_URL = 'http://gz.app/api';
  
 //= =====================
 // CLIENT URL

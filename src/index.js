@@ -9,6 +9,7 @@ import routes from './routes';
 import reducers from './reducers/index';
 import ReactGA from 'react-ga';
 import { AUTH_USER } from './constants';
+import App from './pages/App';
 
 // Import stylesheets
 import './public/stylesheets/base.scss';
@@ -35,3 +36,10 @@ ReactDOM.render(
     <Router history={browserHistory} routes={routes} onUpdate={logPageView} />
   </Provider>,
   document.querySelector('.wrapper'));
+/* 
+if (module.hot) {
+  module.hot.accept('./pages/App.js', () => {
+    const NextRootContainer = require('./pages/App.js').default;
+    render(<NextRootContainer />, document.querySelector('.wrapper'));
+  }
+} */
