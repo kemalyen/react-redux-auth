@@ -19,7 +19,7 @@ const config = {
       {
         test: /\.js?/,
         exclude: [/node_modules/],
-        loaders: ['react-hot', 'babel'],
+        loaders: ['react-hot-loader/webpack', 'babel'],
         include: path.join(__dirname, 'src')
       },
       {

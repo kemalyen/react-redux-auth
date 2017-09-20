@@ -10,12 +10,11 @@ class HeaderTemplate extends Component {
           <Link to="/">Home</Link>
         </li>,
         <li key={`${2}header`}>
-          <Link to="admin">Admin</Link>
+          <Link to="/movies">All Movies</Link>
         </li>,
         <li key={`${3}header`}>
-          <Link to="welcome">Protected Page</Link>
+          <Link to="admin">Admin</Link>
         </li>,
-
         <li key={`${4}header`}>
           <Link to="logout">Logout</Link>
         </li>,
@@ -27,7 +26,7 @@ class HeaderTemplate extends Component {
           <Link to="/">Home</Link>
         </li>,
         <li key={2}>
-          <Link to="welcome">Protected Page</Link>
+            <Link to="/movies">All Movies</Link>
         </li>,
         <li key={3}>
           <Link to="login">Login</Link>          

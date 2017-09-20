@@ -7,7 +7,7 @@ import NotFoundPage from './components/pages/not-found-page';
 
 // Import static pages
 import HomePage from './containers/HomePage';
-
+import MoviesPage from './containers/MoviesPage';
 
 // Import authentication related pages
 import Register from './components/auth/register';
@@ -16,6 +16,8 @@ import Logout from './components/auth/logout';
 import ForgotPassword from './components/auth/forgot_password';
 import ResetPassword from './components/auth/reset_password';
  
+
+
 // Import admin pages
 import AdminDashboard from './components/admin/dashboard';
 import Welcome from './components/admin/welcome';
@@ -36,7 +38,7 @@ export default (
     <Route path="reset-password/:resetToken" component={ResetPassword} />
     
     <Route path="dashboard" component={Dashboard} />
-
+    <Route path="movies" component={MoviesPage} />
     <Route path="welcome" component={RequireAuth(Welcome)} />
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getFilmsByCategory } from '../../actions/categories';
-import VerticalView from '../film/VerticalView';
+import VerticalView from '../movie/VerticalView';
 
 class HomeMovieList extends Component {
 
