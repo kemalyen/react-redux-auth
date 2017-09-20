@@ -10,6 +10,8 @@ import reducers from './reducers/index';
 import ReactGA from 'react-ga';
 import { AUTH_USER } from './constants';
 import App from './pages/App';
+import { createLogger } from 'redux-logger'
+import promise from 'redux-promise';
 
 // Import stylesheets
 import './public/stylesheets/base.scss';
@@ -21,8 +23,17 @@ function logPageView() {
   ReactGA.pageview(window.location.pathname);
 }
 
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(reducers);
+const logger = createLogger({
+  level: 'info',
+  collapsed: false,
+  logger: console,
+  predicate: (getState, action) => true
+})
+
+const createStoreWithMiddleware = applyMiddleware(promise, reduxThunk, logger)(createStore);
+const store = createStoreWithMiddleware(reducers, 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  
+);
 
 const token = cookie.load('token');
 

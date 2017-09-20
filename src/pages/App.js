@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <HeaderTemplate logo="React/Redux Auth Start Project" />
+        <HeaderTemplate logo="React Demo"/>
 
         <div className="container">
           {this.props.children}

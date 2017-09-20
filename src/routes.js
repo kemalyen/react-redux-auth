@@ -6,7 +6,7 @@ import App from './pages/App';
 import NotFoundPage from './components/pages/not-found-page';
 
 // Import static pages
-import HomePage from './pages/HomePage';
+import HomePage from './containers/HomePage';
 
 
 // Import authentication related pages

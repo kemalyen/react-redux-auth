@@ -15,15 +15,31 @@ const config = {
     //publicPath: '/static/'
   },
   module: {
-    loaders: [{
-      exclude: /node_modules/,
-      test: /\.(js|jsx)$/,
-      loaders: ['react-hot', 'babel'],
-    },
+    loaders: [
+      {
+        test: /\.js?/,
+        exclude: [/node_modules/],
+        loaders: ['react-hot', 'babel'],
+        include: path.join(__dirname, 'src')
+      },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass'),
-      }],
+        loader: 'style!css!sass!resolve-url!sass?sourceMap'
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
+      }
+    ]
+
   },
   devServer: {
     historyApiFallback: true,

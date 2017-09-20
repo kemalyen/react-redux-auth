@@ -1,0 +1,11 @@
+.box-text{
+    text-align: center;
+    font-weight: bolder;
+    padding: 20px 0px;
+  }
+  
+.caption h3 {
+    min-height: 30px;
+    text-align: center;
+    font-size: 1em;
+}

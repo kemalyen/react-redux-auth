@@ -11,7 +11,7 @@ import { API_URL, AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, R
 // TO-DO: Add expiration to cookie
 export function loginUser({ email, password }) {
   return function (dispatch) {
-    axios.post(`${API_URL}/auth/login`, 
+    axios.post(`${API_URL}/auth`, 
       { 'email': email, 'password': password },
       { headers: { 'content-type': 'application/json', 'cache-control': 'no-cache' } }      
       )
@@ -27,11 +27,11 @@ export function loginUser({ email, password }) {
   };
 }
 
-export function registerUser({ email, firstname, lastname, password }) {
+export function registerUser({ email, name, password }) {
   return function (dispatch) {
     // some partr of registration are releated to my api
     // so please, update the fields.
-    axios.post(`${API_URL}/auth/register`, { email, firstname, lastname, password, password_confirmation: password, title: 1, phone: '123456', confirmation_email: 1 })
+    axios.post(`${API_URL}/auth/create`, { email, name, password })
     .then((response) => {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
