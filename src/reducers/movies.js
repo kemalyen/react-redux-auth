@@ -6,10 +6,8 @@ export default function(state = INITIAL_STATE, action){
     switch (action.type) {
       case constants.MOVIE_PAGE:
         return {...state, movie: action.payload.data };
-
       case constants.MOVIE_CREDITS:
         return {...state, credits: action.payload.data };
-
       case constants.MOVIES_LIST:
         return {...state, list: action.payload.data };
       case constants.CATEGORY_PRODUCTS:
@@ -26,7 +24,6 @@ export default function(state = INITIAL_STATE, action){
           return {...state, newmovies: action.payload.data };
       case constants.SEARCH_RESULTS:
           return {...state, results: action.payload.data };
-
       default:
         return state;
     }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getMovies } from '../../actions/movies';
 import { Pagination } from 'react-bootstrap';
 import HorizantalView from '../movie/HorizantalView';
+import Helmet from 'react-helmet';
 
 class MoviesList extends Component {
    constructor(props)
@@ -20,17 +21,16 @@ class MoviesList extends Component {
         this.props.dispatch(getMovies());
     }
 
-    listFilms() {
-
-      if(!this.props.films){
-        return (<div>Loading Films ...</div>)
+    listMovies() {
+      if(!this.props.movies){
+        return (<div>Loading Movies ...</div>)
       }
 
       return(
-          this.props.films.map((film, index) => {
+          this.props.movies.map((movie, index) => {
               return (
                 <div key={index} className="col-xs-12">
-                  <HorizantalView film={film}/>
+                  <HorizantalView movie={movie}/>
                 </div>
                 );
           })
@@ -38,7 +38,7 @@ class MoviesList extends Component {
     }
 
     render() {
-      if(!this.props.films){
+      if(!this.props.movies){
          return (<div>Loading ...</div>)
       }
 
@@ -48,8 +48,9 @@ class MoviesList extends Component {
       const showPagination = (pages > 1) ? true : false;
       return (
         <div>
+          <Helmet title="All Movies"/>
           <div className="row">
-              {this.listFilms()}
+              {this.listMovies()}
           </div>
           {showPagination ? (
             <Pagination className="pagination" bsSize="medium" maxButtons={10} first last next prev boundaryLinks
@@ -65,8 +66,8 @@ class MoviesList extends Component {
 }
 
 function mapStateToProps(state) {
-    const { data, meta } = state.films.list;
-    return { films: data, meta: meta };
+    const { data, meta } = state.movies.list;
+    return { movies: data, meta: meta };
 }
 
 export default connect(mapStateToProps)(MoviesList);

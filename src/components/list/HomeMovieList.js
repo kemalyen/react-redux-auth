@@ -9,7 +9,7 @@ class HomeMovieList extends Component {
         this.props.dispatch(getFilmsByCategory(5));
     }
 
-    listFilms() {
+    listMovies() {
       if(!this.props.category){
         return (<div>Loading movies ...</div>)
       }
@@ -18,7 +18,7 @@ class HomeMovieList extends Component {
           this.props.category.movies.data.map((movie, index) => {
               return (
                   <div key={index} className="col-md-2 col-sm-3 col-xs-4">
-                    <VerticalView film={movie}/>
+                    <VerticalView movie={movie}/>
                   </div>
               );
           })
@@ -33,7 +33,7 @@ class HomeMovieList extends Component {
       return (
         <div>
           <div className="row">
-              {this.listFilms()}
+              {this.listMovies()}
           </div>
       </div>
     );

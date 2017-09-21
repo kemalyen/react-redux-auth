@@ -8,6 +8,7 @@ import NotFoundPage from './components/pages/not-found-page';
 // Import static pages
 import HomePage from './containers/HomePage';
 import MoviesPage from './containers/MoviesPage';
+import MoviePage from './containers/MoviePage';
 
 // Import authentication related pages
 import Register from './components/auth/register';
@@ -39,9 +40,10 @@ export default (
     
     <Route path="dashboard" component={Dashboard} />
     <Route path="movies" component={MoviesPage} />
+    <Route path="movies/(:movie_id)" component={MoviePage} />    
+
     <Route path="welcome" component={RequireAuth(Welcome)} />
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
-
     <Route path="*" component={NotFoundPage} />
   </Route>
 );
